@@ -145,10 +145,12 @@ function EnrollForm({ region }: { region?: RegionCode }) {
       English: false,
       Science: false,
     } as Record<string, boolean>,
+    website: "",
     activities: {
       piano: false,
       guitar: false,
     } as Record<string, boolean>,
+    website: "",
   });
 
   const handleUrlParams = useCallback(
@@ -377,6 +379,7 @@ function EnrollForm({ region }: { region?: RegionCode }) {
     };
 
     const submissionData = {
+      website: formData.website || "",
       parentName: formData.parentName,
       email: formData.email,
       phone: formData.phone,
@@ -513,6 +516,16 @@ function EnrollForm({ region }: { region?: RegionCode }) {
         <div className="container">
           <div className="enroll-form-wrapper">
             <form onSubmit={handleSubmit} className="enroll-form">
+              <div style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, width: 0, pointerEvents: "none" }} aria-hidden="true">
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData.website}
+                  onChange={handleChange}
+                />
+              </div>
               <div className="enroll-form__card">
                 <h2 className="enroll-form__title">Let&apos;s Get Started</h2>
                 <p className="enroll-form__subtitle">

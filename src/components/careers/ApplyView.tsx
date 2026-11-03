@@ -53,6 +53,7 @@ export default function ApplyView({ region: propRegion }: { region?: RegionCode 
     coverLetter: "",
     cv: null as File | null,
     agreedTerms: false,
+    website: "",
   });
 
   const handleSubjectToggle = (subject: string) => {
@@ -80,6 +81,7 @@ export default function ApplyView({ region: propRegion }: { region?: RegionCode 
     setSubmitting(true);
     try {
       const submitData = new FormData();
+      submitData.append("website", formData.website);
       submitData.append("fullName", formData.fullName);
       submitData.append("email", formData.email);
       submitData.append("phone", formData.phone);
@@ -187,6 +189,16 @@ export default function ApplyView({ region: propRegion }: { region?: RegionCode 
       {!submitted && (
         <section className="apply-form-section">
           <form onSubmit={handleSubmit} className="apply-form">
+            <div style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, width: 0, pointerEvents: "none" }} aria-hidden="true">
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                value={formData.website}
+                onChange={(e) => setFormData((prev) => ({ ...prev, website: e.target.value }))}
+              />
+            </div>
             <div className="apply-form__section">
               <div className="apply-form__section-header">
                 <div className="apply-form__section-icon">

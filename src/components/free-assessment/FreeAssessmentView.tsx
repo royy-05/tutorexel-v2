@@ -136,6 +136,7 @@ export default function FreeAssessmentView({ region }: { region: RegionCode }) {
     yearLevel: "",
     subject: "",
     preferredTime: "",
+    website: "",
   });
 
   const [openFaq, setOpenFaq] = useState(0);
@@ -434,6 +435,16 @@ export default function FreeAssessmentView({ region }: { region: RegionCode }) {
               </h2>
 
               <form onSubmit={handleSubmit}>
+                <div style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, width: 0, pointerEvents: "none" }} aria-hidden="true">
+                  <input
+                    type="text"
+                    name="website"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formData.website}
+                    onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                  />
+                </div>
                 <div className="assessment-form__grid">
                   <div className="assessment-form__field">
                     <label className="assessment-form__label">

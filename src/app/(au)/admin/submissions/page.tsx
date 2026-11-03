@@ -344,6 +344,11 @@ export default function SubmissionsPage() {
                         <span style={{ background: (TYPE_COLORS[sub.type] || "#374151") + "18", color: TYPE_COLORS[sub.type] || "#374151", padding: "3px 10px", borderRadius: 12, fontSize: 11, fontWeight: 700, textTransform: "uppercase" as const, letterSpacing: "0.05em" }}>
                           {TYPE_LABELS[sub.type] || sub.type}
                         </span>
+                        {Boolean(sub.data?.emailFailed) && (
+                          <span style={{ marginLeft: 6, background: "#fee2e2", color: "#b91c1c", padding: "2px 6px", borderRadius: 6, fontSize: 10, fontWeight: 700 }} title="Email delivery failed">
+                            Email Failed
+                          </span>
+                        )}
                       </td>
                       <td style={{ padding: "10px 12px", fontWeight: 500, color: "#111827" }}>{name}</td>
                       <td style={{ padding: "10px 12px", color: "#2563eb" }}><a href={`mailto:${email}`} style={{ color: "inherit", textDecoration: "none" }}>{email}</a></td>

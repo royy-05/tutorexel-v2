@@ -100,6 +100,7 @@ export default function ContactView({ region }: { region: RegionCode }) {
     hearAbout: "",
     message: "",
     agreedTerms: false,
+    website: "",
   });
 
   const [submitting, setSubmitting] = useState(false);
@@ -367,6 +368,16 @@ export default function ContactView({ region }: { region: RegionCode }) {
                   </p>
 
                   <form onSubmit={handleSubmit}>
+                    <div style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, width: 0, pointerEvents: "none" }} aria-hidden="true">
+                      <input
+                        type="text"
+                        name="website"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={formData.website}
+                        onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                      />
+                    </div>
                     <div className="contact-form__grid">
                       <div className="contact-form__field">
                         <input
