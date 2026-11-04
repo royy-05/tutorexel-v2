@@ -26,6 +26,7 @@ type PricingPlan = {
   currency: string;
   amount: string;
   originalAmount?: string;
+  discountBadge?: string;
   period: string;
   popular: boolean;
   borderColor: string;
@@ -82,6 +83,7 @@ const pricingPlans: PricingPlan[] = [
     currency: '$',
     amount: PRICING_DATA.premium.amount,
     originalAmount: PRICING_DATA.premium.originalAmount,
+    discountBadge: PRICING_DATA.premium.discountBadge,
     period: 'month',
     popular: false,
     borderColor: 'dark',
@@ -416,7 +418,7 @@ export default function Pricing({ region }: PricingProps = {}) {
           <h2 className="section-header__title">Choose Your Plan</h2>
           <div className="pricing__discount-badge">
             <span className="pricing__discount-pulse" aria-hidden="true"></span>
-            Get up to <strong>20% discount</strong> - Enrol Today!
+            Save <strong>10%</strong> on Premium Plan!
           </div>
           <p className="section-header__subtitle">
             No contracts. No hidden fees. Cancel anytime.

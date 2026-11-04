@@ -17,10 +17,15 @@ interface AppliedCoupon {
   finalAmount: number;
 }
 
+function formatPrice(val: number | null | undefined): string {
+  if (val == null) return "";
+  return val % 1 !== 0 ? val.toFixed(2) : String(val);
+}
+
 const offeringOptions = [
   { value: "live-online-coaching", label: "Live Online Coaching" },
   { value: "co-curricular", label: "Co-Curricular" },
-  { value: "premium-plan", label: "Premium Plan" },
+  { value: "premium-plan", label: "Premium Plan (Save 10%)" },
 ];
 
 function CheckCircleIcon() {
@@ -470,7 +475,7 @@ function EnrollForm({ region }: { region?: RegionCode }) {
               <p className="enroll-success__message">
                 Thank you! Your details have been received.
                 {totalAmount !== null && (
-                  <> The fee for the programme is <strong className="enroll-success__fee">{selectedCountry.currency} ${appliedCoupon ? appliedCoupon.finalAmount.toFixed(2) : totalAmount}{formData.offering === "co-curricular" && Object.values(formData.activities).filter(Boolean).length === 1 ? "/session" : "/month"}</strong>.</>
+                  <> The fee for the programme is <strong className="enroll-success__fee">{selectedCountry.currency} ${appliedCoupon ? appliedCoupon.finalAmount.toFixed(2) : formatPrice(totalAmount)}{formData.offering === "co-curricular" && Object.values(formData.activities).filter(Boolean).length === 1 ? "/session" : "/month"}</strong>.</>
                 )} Our team will get back to you within 24 hours to confirm your enrolment and arrange next steps.
               </p>
               <div className="enroll-success__actions">
@@ -821,7 +826,7 @@ function EnrollForm({ region }: { region?: RegionCode }) {
                   <div className="enroll-form__group">
                     <div className="enroll-form__info-card">
                       Your Premium Plan includes 12 live classes per month covering
-                      Mathematics, English and Science, recorded session access, monthly
+                      Mathematics, English and Science (Save 10%), recorded session access, monthly
                       reports, and WhatsApp support.
                     </div>
                   </div>
@@ -834,7 +839,7 @@ function EnrollForm({ region }: { region?: RegionCode }) {
                       <div className="enroll-form__breakdown">
                         <div className="enroll-form__breakdown-row">
                           <span>Original Price</span>
-                          <span>{selectedCountry.currency} ${totalAmount}</span>
+                          <span>{selectedCountry.currency} ${formatPrice(totalAmount)}</span>
                         </div>
                         <div className="enroll-form__breakdown-row enroll-form__breakdown-row--discount">
                           <span>
@@ -848,7 +853,7 @@ function EnrollForm({ region }: { region?: RegionCode }) {
                               ×
                             </button>
                           </span>
-                          <span>−{selectedCountry.currency} ${appliedCoupon.discountAmount.toFixed(2)}</span>
+                          <span>-{selectedCountry.currency} ${appliedCoupon.discountAmount.toFixed(2)}</span>
                         </div>
                         <div className="enroll-form__total enroll-form__total--final">
                           <span className="enroll-form__total-label">Final Amount:</span>
@@ -864,7 +869,7 @@ function EnrollForm({ region }: { region?: RegionCode }) {
                       <div className="enroll-form__total">
                         <span className="enroll-form__total-label">Total Amount:</span>
                         <span className="enroll-form__total-amount">
-                          {selectedCountry.currency} ${totalAmount}
+                          {selectedCountry.currency} ${formatPrice(totalAmount)}
                           <span className="enroll-form__total-period">
                             {pricing.period}
                           </span>

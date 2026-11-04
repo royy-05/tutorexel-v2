@@ -1,5 +1,5 @@
 /**
- * Shared pricing logic for the enrollment flow.
+ * Shared pricing logic for the enrollment flow and calculator.
  * Used by both the enroll page (client) and /api/enroll (server) so the
  * server can re-derive totals instead of trusting client input.
  */
@@ -34,8 +34,13 @@ export function computePricing(input: PricingInput, regionCode?: string): Pricin
     const subjectCount = [subjects?.Mathematics, subjects?.English, subjects?.Science].filter(Boolean).length;
     if (subjectCount === 0) return { total: null, period: "/month" };
     if (classType === "one-to-one") {
-      // 1:1 pricing: 1 subject = tutoring amount ($84 or NZ$92), 2 subjects = $149, 3 subjects = premium ($241)
-      const price = subjectCount === 3 ? pricingData.premium.amountNumber : subjectCount === 2 ? 149 : pricingData.tutoring.amountNumber;
+      // 1:1 pricing: 1 subject = tutoring amount, 2 subjects = twoSubjects amount, 3 subjects = premium plan
+      const price =
+        subjectCount === 3
+          ? pricingData.premium.amountNumber
+          : subjectCount === 2
+            ? pricingData.twoSubjects.amountNumber
+            : pricingData.tutoring.amountNumber;
       return { total: price, period: "/month" };
     }
     if (classType === "group") {
@@ -50,7 +55,7 @@ export function computePricing(input: PricingInput, regionCode?: string): Pricin
     const activityCount = [activities?.piano, activities?.guitar].filter(Boolean).length;
     if (activityCount === 0) return { total: null, period: "/session" };
     return {
-      total: activityCount === 1 ? pricingData.music.amountNumber : 149,
+      total: activityCount === 1 ? pricingData.music.amountNumber : pricingData.activityBundle.amountNumber,
       period: activityCount === 1 ? "/session" : "/month",
     };
   }

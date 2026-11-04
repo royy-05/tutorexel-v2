@@ -177,7 +177,7 @@ export const NZ_HOME_COPY = {
   pricing: {
     eyebrow: "Simple Pricing",
     title: "Pick the Right Plan",
-    line1: "Save up to 20% · Enrol Today!",
+    line1: "Save 10%. Enrol today!",
     line2: "Pay monthly in NZD, GST included. No lock-in. Cancel anytime.",
     countryTabs: [
       { label: "Australia", href: "/pricing", code: "au", flag: "https://flagcdn.com/80x60/au.png" },

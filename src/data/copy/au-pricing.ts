@@ -1,4 +1,4 @@
-import { PRICING_DATA } from "@/data/pricing";
+import { AU_PRICING_DATA } from "@/data/pricing";
 
 export interface PricingPlanCopy {
   id: string;
@@ -53,11 +53,11 @@ export const AU_PRICING_COPY: AuPricingCopy = {
   plans: [
     {
       id: "live-online-coaching",
-      name: PRICING_DATA.tutoring.name,
-      subtitle: PRICING_DATA.tutoring.subtitleAU,
+      name: AU_PRICING_DATA.tutoring.name,
+      subtitle: AU_PRICING_DATA.tutoring.subtitleAU,
       badge: "Most Popular",
       currency: "$",
-      amount: PRICING_DATA.tutoring.amount,
+      amount: AU_PRICING_DATA.tutoring.amount,
       period: "per month, per subject",
       popular: true,
       borderColor: "orange",
@@ -77,10 +77,10 @@ export const AU_PRICING_COPY: AuPricingCopy = {
     },
     {
       id: "co-curricular",
-      name: PRICING_DATA.music.name,
-      subtitle: PRICING_DATA.music.subtitle,
+      name: AU_PRICING_DATA.music.name,
+      subtitle: AU_PRICING_DATA.music.subtitle,
       currency: "$",
-      amount: PRICING_DATA.music.amount,
+      amount: AU_PRICING_DATA.music.amount,
       period: "per month (4 classes)",
       popular: false,
       borderColor: "dark",
@@ -98,12 +98,12 @@ export const AU_PRICING_COPY: AuPricingCopy = {
     },
     {
       id: "premium-plan",
-      name: PRICING_DATA.premium.name,
-      subtitle: PRICING_DATA.premium.subtitle,
+      name: AU_PRICING_DATA.premium.name,
+      subtitle: AU_PRICING_DATA.premium.subtitle,
       currency: "$",
-      amount: PRICING_DATA.premium.amount,
-      originalAmount: PRICING_DATA.premium.originalAmount,
-      discountBadge: PRICING_DATA.premium.discountBadge,
+      amount: AU_PRICING_DATA.premium.amount,
+      originalAmount: AU_PRICING_DATA.premium.originalAmount,
+      discountBadge: AU_PRICING_DATA.premium.discountBadge,
       period: "per month",
       popular: false,
       borderColor: "dark",

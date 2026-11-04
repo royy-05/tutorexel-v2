@@ -1,5 +1,5 @@
 import { REGIONS_CONFIG } from "@/data/regions";
-import { PRICING_DATA } from "@/data/pricing";
+import { CA_PRICING_DATA } from "@/data/pricing";
 
 export interface CaPricingPlan {
   id: string;
@@ -46,11 +46,11 @@ const plan1Config = caPlans.find((p) => p.id === "live-online-coaching") || caPl
 const plan2Config = caPlans.find((p) => p.id === "co-curricular") || caPlans[1];
 const plan3Config = caPlans.find((p) => p.id === "premium-plan") || caPlans[2];
 
-const plan1Amount = plan1Config?.amount ?? PRICING_DATA.tutoring.amountNumber;
-const plan2Amount = plan2Config?.amount ?? PRICING_DATA.music.amountNumber;
-const plan3Amount = plan3Config?.amount ?? PRICING_DATA.premium.amountNumber;
-const plan3OriginalAmount = plan3Config?.originalAmount ?? PRICING_DATA.premium.originalAmountNumber;
-const plan3DiscountBadge = PRICING_DATA.premium.discountBadgeTitleCase;
+const plan1Amount = plan1Config?.amount ?? CA_PRICING_DATA.tutoring.amountNumber;
+const plan2Amount = plan2Config?.amount ?? CA_PRICING_DATA.music.amountNumber;
+const plan3Amount = plan3Config?.amount ?? CA_PRICING_DATA.premium.amountNumber;
+const plan3OriginalAmount = plan3Config?.originalAmount ?? CA_PRICING_DATA.premium.originalAmountNumber;
+const plan3DiscountBadge = CA_PRICING_DATA.premium.discountBadgeTitleCase;
 
 export const CA_PRICING_COPY: CaPricingCopy = {
   hero: {
@@ -62,8 +62,8 @@ export const CA_PRICING_COPY: CaPricingCopy = {
   plans: [
     {
       id: "live-online-coaching",
-      name: PRICING_DATA.tutoring.name,
-      subtitle: PRICING_DATA.tutoring.subtitleUS,
+      name: CA_PRICING_DATA.tutoring.name,
+      subtitle: CA_PRICING_DATA.tutoring.subtitleUS,
       badge: "Most Popular",
       featured: true,
       amount: plan1Amount,
@@ -85,8 +85,8 @@ export const CA_PRICING_COPY: CaPricingCopy = {
     },
     {
       id: "co-curricular",
-      name: PRICING_DATA.music.name,
-      subtitle: PRICING_DATA.music.subtitle,
+      name: CA_PRICING_DATA.music.name,
+      subtitle: CA_PRICING_DATA.music.subtitle,
       featured: false,
       amount: plan2Amount,
       periodText: "CAD per month (4 lessons)",
@@ -105,14 +105,14 @@ export const CA_PRICING_COPY: CaPricingCopy = {
     },
     {
       id: "premium-plan",
-      name: PRICING_DATA.premium.name,
-      subtitle: PRICING_DATA.premium.subtitle,
+      name: CA_PRICING_DATA.premium.name,
+      subtitle: CA_PRICING_DATA.premium.subtitle,
       featured: false,
       amount: plan3Amount,
       originalAmount: plan3OriginalAmount,
       discountBadge: plan3DiscountBadge,
       periodText: "CAD per month",
-      formattedPrice: `$${plan3Amount} CAD per month`,
+      formattedPrice: `$${plan3Amount % 1 !== 0 ? plan3Amount.toFixed(2) : plan3Amount} CAD per month`,
       features: [
         "12 live lessons a month",
         "3 subjects: Math, English and Science",

@@ -406,7 +406,7 @@ export default function AustralianTutoringReport2026Page() {
             </ul>
 
             <div className="report-highlight report-highlight--green">
-              TutorExel pricing: from $39/month for group sessions and $84/month for 1:1 tutoring. Designed to make quality, curriculum-aligned tutoring accessible to more Australian families.
+              TutorExel pricing: from $39/month for group sessions and $92/month for 1:1 tutoring. Designed to make quality, curriculum-aligned tutoring accessible to more Australian families.
             </div>
 
             <Link href="/pricing" className="report-section__link">

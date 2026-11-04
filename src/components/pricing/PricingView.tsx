@@ -9,7 +9,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { createFaqSchema } from "@/utils/schema";
 import CountryTabs, { COUNTRIES, type Country } from "@/components/shared/CountryTabs";
 import { REGIONS_CONFIG, type RegionCode } from "@/data/regions";
-import { PRICING_DATA, getRegionalPricing } from "@/data/pricing";
+import { PRICING_DATA, getRegionalPricing, US_PRICING_DATA, AU_PRICING_DATA, NZ_PRICING_DATA, CA_PRICING_DATA } from "@/data/pricing";
 import { AU_PRICING_COPY } from "@/data/copy/au-pricing";
 import { US_PRICING_COPY } from "@/data/copy/us-pricing";
 import { CA_PRICING_COPY } from "@/data/copy/ca-pricing";
@@ -35,10 +35,10 @@ type PricingPlan = {
 const usPricingPlans: PricingPlan[] = [
   {
     id: "live-online-coaching",
-    name: PRICING_DATA.tutoring.name,
-    subtitle: PRICING_DATA.tutoring.subtitleUS,
+    name: US_PRICING_DATA.tutoring.name,
+    subtitle: US_PRICING_DATA.tutoring.subtitleUS,
     currency: "$",
-    amount: PRICING_DATA.tutoring.amount,
+    amount: US_PRICING_DATA.tutoring.amount,
     period: "per month, per subject",
     popular: true,
     borderColor: "orange",
@@ -46,10 +46,10 @@ const usPricingPlans: PricingPlan[] = [
   },
   {
     id: "co-curricular",
-    name: PRICING_DATA.music.name,
-    subtitle: PRICING_DATA.music.subtitle,
+    name: US_PRICING_DATA.music.name,
+    subtitle: US_PRICING_DATA.music.subtitle,
     currency: "$",
-    amount: PRICING_DATA.music.amount,
+    amount: US_PRICING_DATA.music.amount,
     period: "per month (4 lessons)",
     popular: false,
     borderColor: "dark",
@@ -57,12 +57,12 @@ const usPricingPlans: PricingPlan[] = [
   },
   {
     id: "premium-plan",
-    name: PRICING_DATA.premium.name,
-    subtitle: PRICING_DATA.premium.subtitle,
+    name: US_PRICING_DATA.premium.name,
+    subtitle: US_PRICING_DATA.premium.subtitle,
     currency: "$",
-    amount: PRICING_DATA.premium.amount,
-    originalAmount: PRICING_DATA.premium.originalAmount,
-    discountBadge: PRICING_DATA.premium.discountBadgeTitleCase,
+    amount: US_PRICING_DATA.premium.amount,
+    originalAmount: US_PRICING_DATA.premium.originalAmount,
+    discountBadge: US_PRICING_DATA.premium.discountBadgeTitleCase,
     period: "per month",
     popular: false,
     borderColor: "dark",
@@ -74,10 +74,10 @@ const usPricingPlans: PricingPlan[] = [
 const pricingPlans: PricingPlan[] = [
   {
     id: "live-online-coaching",
-    name: PRICING_DATA.tutoring.name,
+    name: AU_PRICING_DATA.tutoring.name,
     subtitle: "Mathematics, English, Science",
     currency: "$",
-    amount: PRICING_DATA.tutoring.amount,
+    amount: AU_PRICING_DATA.tutoring.amount,
     period: "month per subject",
     popular: true,
     borderColor: "orange",
@@ -96,10 +96,10 @@ const pricingPlans: PricingPlan[] = [
   },
   {
     id: "co-curricular",
-    name: PRICING_DATA.music.name,
+    name: AU_PRICING_DATA.music.name,
     subtitle: "Piano & Guitar",
     currency: "$",
-    amount: PRICING_DATA.music.amount,
+    amount: AU_PRICING_DATA.music.amount,
     period: "month (4 classes)",
     popular: false,
     borderColor: "dark",
@@ -116,11 +116,12 @@ const pricingPlans: PricingPlan[] = [
   },
   {
     id: "premium-plan",
-    name: PRICING_DATA.premium.name,
-    subtitle: "Complete Learning Package\n3 Subjects",
+    name: AU_PRICING_DATA.premium.name,
+    subtitle: AU_PRICING_DATA.premium.subtitle,
     currency: "$",
-    amount: PRICING_DATA.premium.amount,
-    originalAmount: PRICING_DATA.premium.originalAmount,
+    amount: AU_PRICING_DATA.premium.amount,
+    originalAmount: AU_PRICING_DATA.premium.originalAmount,
+    discountBadge: AU_PRICING_DATA.premium.discountBadgeTitleCase,
     period: "month",
     popular: false,
     borderColor: "dark",
@@ -288,7 +289,7 @@ function PricingContent({ region }: { region: RegionCode }) {
       name: NZ_PRICING_COPY.plansSection.plans[0].name,
       subtitle: NZ_PRICING_COPY.plansSection.plans[0].subtitle,
       currency: "NZ$",
-      amount: String(nzPlansConfig?.[0]?.amount || nzPricing.tutoring.amountNumber),
+      amount: nzPricing.tutoring.amount,
       period: NZ_PRICING_COPY.plansSection.plans[0].periodText,
       popular: true,
       borderColor: "orange",
@@ -299,7 +300,7 @@ function PricingContent({ region }: { region: RegionCode }) {
       name: NZ_PRICING_COPY.plansSection.plans[1].name,
       subtitle: NZ_PRICING_COPY.plansSection.plans[1].subtitle,
       currency: "NZ$",
-      amount: String(nzPlansConfig?.[1]?.amount || nzPricing.music.amountNumber),
+      amount: nzPricing.music.amount,
       period: NZ_PRICING_COPY.plansSection.plans[1].periodText,
       popular: false,
       borderColor: "dark",
@@ -310,9 +311,9 @@ function PricingContent({ region }: { region: RegionCode }) {
       name: NZ_PRICING_COPY.plansSection.plans[2].name,
       subtitle: NZ_PRICING_COPY.plansSection.plans[2].subtitle,
       currency: "NZ$",
-      amount: String(nzPlansConfig?.[2]?.amount || nzPricing.premium.amountNumber),
-      originalAmount: String(nzPlansConfig?.[2]?.originalAmount || nzPricing.premium.originalAmountNumber),
-      discountBadge: nzPlansConfig?.[2]?.discountBadge || nzPricing.premium.discountBadgeTitleCase,
+      amount: nzPricing.premium.amount,
+      originalAmount: nzPricing.premium.originalAmount,
+      discountBadge: nzPricing.premium.discountBadgeTitleCase,
       period: NZ_PRICING_COPY.plansSection.plans[2].periodText,
       popular: false,
       borderColor: "dark",
@@ -407,7 +408,7 @@ function PricingContent({ region }: { region: RegionCode }) {
           <div className="container">
             <p className="pricing-flash__text">
               <span className="pricing-flash__pulse" aria-hidden="true"></span>
-              Get up to <strong>20% discount</strong> - Enrol Today!
+              Save <strong>10%</strong> on Premium Plan!
             </p>
           </div>
         </div>
@@ -576,7 +577,7 @@ function PricingContent({ region }: { region: RegionCode }) {
                       <div className="pricing-card__price">
                         <span className="currency">{plan.currency}</span>
                         <span className="amount">{plan.amount}</span>
-                        <span className="period">{isAu ? `AUD ${plan.period}` : isUs ? ` ${plan.period}` : isNz ? ` ${plan.period}` : `${selectedCountry.currency}/${plan.period}`}</span>
+                        <span className="period">{isAu ? `AUD ${plan.period}` : isUs ? `USD ${plan.period}` : isNz ? `NZD ${plan.period}` : `${selectedCountry.currency}/${plan.period}`}</span>
                       </div>
                     </div>
 
@@ -642,7 +643,7 @@ function PricingContent({ region }: { region: RegionCode }) {
                         <span className="pricing-subcard__detail">{selectedCountry.currency}/month - 1 Subject</span>
                       </div>
                       <div className="pricing-subcard__price-row">
-                        <span className="pricing-subcard__amount">$149</span>
+                        <span className="pricing-subcard__amount">${regPricing.twoSubjects.amount}</span>
                         <span className="pricing-subcard__detail">{selectedCountry.currency}/month - 2 Subjects</span>
                       </div>
                       <div className="pricing-subcard__price-row">
@@ -740,7 +741,7 @@ function PricingContent({ region }: { region: RegionCode }) {
                     </p>
                     <div className="pricing-subcard__prices">
                       <div className="pricing-subcard__price-row">
-                        <span className="pricing-subcard__amount">$149</span>
+                        <span className="pricing-subcard__amount">${regPricing.activityBundle.amount}</span>
                         <span className="pricing-subcard__detail">{selectedCountry.currency}/month - both activities</span>
                       </div>
                     </div>

@@ -21,7 +21,7 @@ export default function HeroV1() {
             </span>
             <span>Live 1-on-1 Australian Tutoring</span>
             <span className="hero-v1__eyebrow-divider"></span>
-            <span className="hero-v1__eyebrow-years">Years 2–7</span>
+            <span className="hero-v1__eyebrow-years">Years 2 to 7</span>
           </span>
 
           <h1 className="hero-v1__title">
@@ -34,7 +34,7 @@ export default function HeroV1() {
           </h1>
 
           <p className="hero-v1__subtitle">
-            Live personal classes with qualified Australian teachers. Just <span className="hero-v1__price-chip">$28 per class</span>, and your first class is free.
+            Live personal classes with qualified Australian teachers. Just <span className="hero-v1__price-chip">$23 per class</span>, and your first class is free.
           </p>
 
           <div className="hero-v1__compare">
@@ -49,7 +49,7 @@ export default function HeroV1() {
             <div className="hero-v1__compare-item hero-v1__compare-item--us">
               <span className="hero-v1__compare-label">TutorExel 1-on-1</span>
               <span className="hero-v1__compare-price hero-v1__compare-price--us">
-                <span>$28</span>
+                <span>$23</span>
                 <span className="hero-v1__compare-unit">/class</span>
               </span>
             </div>

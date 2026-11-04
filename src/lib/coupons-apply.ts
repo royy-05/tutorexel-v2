@@ -32,7 +32,7 @@ function round2(n: number): number {
 
 /**
  * Validates a coupon against a cart total and computes the discount.
- * Pure function — does not touch storage and does not increment usage.
+ * Pure function - does not touch storage and does not increment usage.
  */
 export function applyCoupon(coupon: Coupon | null, cartTotal: number): ApplyResult {
   if (!coupon) return fail("not_found");

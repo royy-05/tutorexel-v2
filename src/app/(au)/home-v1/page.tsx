@@ -10,9 +10,9 @@ import FAQ from '@/components/home/FAQ';
 import CTA from '@/components/home/CTA';
 
 export const metadata: Metadata = buildMetadata({
-  title: "TutorExel v1 Preview - 1-on-1 Australian Tutoring From $28/class",
+  title: "TutorExel v1 Preview - 1-on-1 Australian Tutoring From $23/class",
   description:
-    "Preview build. Live personal 1-on-1 tutoring for Years 2-7 with qualified Australian teachers. Just $28/class. First class is free.",
+    "Preview build. Live personal 1-on-1 tutoring for Years 2 to 7 with qualified Australian teachers. Just $23/class. First class is free.",
   path: "/home-v1",
   region: "au",
   noindex: true,

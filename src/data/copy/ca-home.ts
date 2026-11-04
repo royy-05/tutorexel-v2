@@ -1,4 +1,4 @@
-import { PRICING_DATA } from "@/data/pricing";
+import { CA_PRICING_DATA } from "@/data/pricing";
 
 export const CA_HOME_COPY = {
   meta: {
@@ -175,15 +175,15 @@ export const CA_HOME_COPY = {
   pricing: {
     eyebrow: "Simple Pricing",
     title: "Pick the Right Plan",
-    line1: "Save up to 20%. Enrol today!",
+    line1: "Save 10%. Enroll today!",
     line2: "Pay monthly in CAD. No lock-in. Cancel anytime.",
     plans: [
       {
         id: "live-online-coaching",
-        name: PRICING_DATA.tutoring.name,
-        subtitle: PRICING_DATA.tutoring.subtitleUS,
+        name: CA_PRICING_DATA.tutoring.name,
+        subtitle: CA_PRICING_DATA.tutoring.subtitleUS,
         currency: "$",
-        amount: PRICING_DATA.tutoring.amount,
+        amount: CA_PRICING_DATA.tutoring.amount,
         period: "CAD/month per subject",
         popular: true,
         borderColor: "orange",
@@ -204,10 +204,10 @@ export const CA_HOME_COPY = {
       },
       {
         id: "co-curricular",
-        name: PRICING_DATA.music.name,
-        subtitle: PRICING_DATA.music.subtitle,
+        name: CA_PRICING_DATA.music.name,
+        subtitle: CA_PRICING_DATA.music.subtitle,
         currency: "$",
-        amount: PRICING_DATA.music.amount,
+        amount: CA_PRICING_DATA.music.amount,
         period: "CAD/month (4 classes)",
         popular: false,
         borderColor: "dark",
@@ -226,12 +226,12 @@ export const CA_HOME_COPY = {
       },
       {
         id: "premium-plan",
-        name: PRICING_DATA.premium.name,
-        subtitle: PRICING_DATA.premium.subtitle,
+        name: CA_PRICING_DATA.premium.name,
+        subtitle: CA_PRICING_DATA.premium.subtitle,
         currency: "$",
-        amount: PRICING_DATA.premium.amount,
-        originalAmount: PRICING_DATA.premium.originalAmount,
-        discountBadge: PRICING_DATA.premium.discountBadge,
+        amount: CA_PRICING_DATA.premium.amount,
+        originalAmount: CA_PRICING_DATA.premium.originalAmount,
+        discountBadge: CA_PRICING_DATA.premium.discountBadge,
         period: "CAD/month",
         popular: false,
         borderColor: "dark",

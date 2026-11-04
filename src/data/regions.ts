@@ -1,4 +1,4 @@
-import { PRICING_DATA, NZ_PRICING_DATA } from "@/data/pricing";
+import { AU_PRICING_DATA, US_PRICING_DATA, CA_PRICING_DATA, NZ_PRICING_DATA } from "@/data/pricing";
 
 export type RegionCode = "au" | "us" | "ca" | "nz";
 
@@ -209,7 +209,7 @@ export const REGIONS_CONFIG: Record<RegionCode, RegionConfig> = {
     },
     pricing: {
       title: "Pick the Right Plan",
-      discountText: "Save up to 20%. Enrol today!",
+      discountText: "Save 10%. Enrol today!",
       subtitle: "Pay monthly in AUD. No lock-in. Cancel anytime.",
       footnote: "Prices shown in AUD. See pricing for USA, Canada and New Zealand",
       plans: [
@@ -220,7 +220,7 @@ export const REGIONS_CONFIG: Record<RegionCode, RegionConfig> = {
           badge: "Most Popular",
           featured: true,
           themeCategory: "inside",
-          amount: 84,
+          amount: AU_PRICING_DATA.tutoring.amountNumber,
           periodText: "AUD/month per subject",
           features: [
             "1-hour personalised live lessons",
@@ -243,7 +243,7 @@ export const REGIONS_CONFIG: Record<RegionCode, RegionConfig> = {
           subtitle: "Piano and Guitar",
           featured: false,
           themeCategory: "study",
-          amount: 79,
+          amount: AU_PRICING_DATA.music.amountNumber,
           periodText: "AUD/month (4 classes)",
           features: [
             "Piano lessons",
@@ -260,13 +260,13 @@ export const REGIONS_CONFIG: Record<RegionCode, RegionConfig> = {
         },
         {
           id: "premium-plan",
-          name: PRICING_DATA.premium.name,
-          subtitle: PRICING_DATA.premium.subtitle,
+          name: AU_PRICING_DATA.premium.name,
+          subtitle: AU_PRICING_DATA.premium.subtitle,
           featured: false,
           themeCategory: "parents",
-          amount: PRICING_DATA.premium.amountNumber,
-          originalAmount: PRICING_DATA.premium.originalAmountNumber,
-          discountBadge: PRICING_DATA.premium.discountBadge,
+          amount: AU_PRICING_DATA.premium.amountNumber,
+          originalAmount: AU_PRICING_DATA.premium.originalAmountNumber,
+          discountBadge: AU_PRICING_DATA.premium.discountBadge,
           periodText: "AUD/month",
           features: [
             "12 live classes per month",
@@ -365,18 +365,18 @@ export const REGIONS_CONFIG: Record<RegionCode, RegionConfig> = {
     // TODO: Pending client input for exact regional pricing numbers.
     pricing: {
       title: "Choose Your Plan",
-      discountText: "Get up to 20% discount - Enroll Today!",
+      discountText: "Save 10%. Enroll today!",
       subtitle: "No contracts. No hidden fees. Cancel anytime.",
       footnote: "Prices shown in USD. See pricing for Australia, Canada and New Zealand",
       plans: [
         {
           id: "live-online-coaching",
-          name: PRICING_DATA.tutoring.name,
-          subtitle: PRICING_DATA.tutoring.subtitleUS,
+          name: US_PRICING_DATA.tutoring.name,
+          subtitle: US_PRICING_DATA.tutoring.subtitleUS,
           badge: "Most Popular",
           featured: true,
           themeCategory: "inside",
-          amount: PRICING_DATA.tutoring.amountNumber,
+          amount: US_PRICING_DATA.tutoring.amountNumber,
           periodText: "USD/month per subject",
           features: [
             "1 hour personalized sessions",
@@ -395,11 +395,11 @@ export const REGIONS_CONFIG: Record<RegionCode, RegionConfig> = {
         },
         {
           id: "co-curricular",
-          name: PRICING_DATA.music.name,
-          subtitle: PRICING_DATA.music.subtitle,
+          name: US_PRICING_DATA.music.name,
+          subtitle: US_PRICING_DATA.music.subtitle,
           featured: false,
           themeCategory: "study",
-          amount: PRICING_DATA.music.amountNumber,
+          amount: US_PRICING_DATA.music.amountNumber,
           periodText: "USD/month (4 classes)",
           features: [
             "Piano lessons",
@@ -416,13 +416,13 @@ export const REGIONS_CONFIG: Record<RegionCode, RegionConfig> = {
         },
         {
           id: "premium-plan",
-          name: PRICING_DATA.premium.name,
-          subtitle: PRICING_DATA.premium.subtitle,
+          name: US_PRICING_DATA.premium.name,
+          subtitle: US_PRICING_DATA.premium.subtitle,
           featured: false,
           themeCategory: "parents",
-          amount: PRICING_DATA.premium.amountNumber,
-          originalAmount: PRICING_DATA.premium.originalAmountNumber,
-          discountBadge: PRICING_DATA.premium.discountBadge,
+          amount: US_PRICING_DATA.premium.amountNumber,
+          originalAmount: US_PRICING_DATA.premium.originalAmountNumber,
+          discountBadge: US_PRICING_DATA.premium.discountBadge,
           periodText: "USD/month",
           features: [
             "12 live classes per month",
@@ -521,18 +521,18 @@ export const REGIONS_CONFIG: Record<RegionCode, RegionConfig> = {
     // TODO: Pending client input for exact regional pricing numbers.
     pricing: {
       title: "Choose Your Plan",
-      discountText: "Get up to 20% discount - Enroll Today!",
+      discountText: "Save 10%. Enroll today!",
       subtitle: "No contracts. No hidden fees. Cancel anytime.",
       footnote: "Prices shown in CAD. See pricing for Australia, USA and New Zealand",
       plans: [
         {
           id: "live-online-coaching",
-          name: PRICING_DATA.tutoring.name,
-          subtitle: PRICING_DATA.tutoring.subtitleUS,
+          name: CA_PRICING_DATA.tutoring.name,
+          subtitle: CA_PRICING_DATA.tutoring.subtitleUS,
           badge: "Most Popular",
           featured: true,
           themeCategory: "inside",
-          amount: PRICING_DATA.tutoring.amountNumber,
+          amount: CA_PRICING_DATA.tutoring.amountNumber,
           periodText: "CAD/month per subject",
           features: [
             "1 hour personalized sessions",
@@ -551,11 +551,11 @@ export const REGIONS_CONFIG: Record<RegionCode, RegionConfig> = {
         },
         {
           id: "co-curricular",
-          name: PRICING_DATA.music.name,
-          subtitle: PRICING_DATA.music.subtitle,
+          name: CA_PRICING_DATA.music.name,
+          subtitle: CA_PRICING_DATA.music.subtitle,
           featured: false,
           themeCategory: "study",
-          amount: PRICING_DATA.music.amountNumber,
+          amount: CA_PRICING_DATA.music.amountNumber,
           periodText: "CAD/month (4 classes)",
           features: [
             "Piano lessons",
@@ -572,13 +572,13 @@ export const REGIONS_CONFIG: Record<RegionCode, RegionConfig> = {
         },
         {
           id: "premium-plan",
-          name: PRICING_DATA.premium.name,
-          subtitle: PRICING_DATA.premium.subtitle,
+          name: CA_PRICING_DATA.premium.name,
+          subtitle: CA_PRICING_DATA.premium.subtitle,
           featured: false,
           themeCategory: "parents",
-          amount: PRICING_DATA.premium.amountNumber,
-          originalAmount: PRICING_DATA.premium.originalAmountNumber,
-          discountBadge: PRICING_DATA.premium.discountBadge,
+          amount: CA_PRICING_DATA.premium.amountNumber,
+          originalAmount: CA_PRICING_DATA.premium.originalAmountNumber,
+          discountBadge: CA_PRICING_DATA.premium.discountBadge,
           periodText: "CAD/month",
           features: [
             "12 live classes per month",
@@ -696,7 +696,7 @@ export const REGIONS_CONFIG: Record<RegionCode, RegionConfig> = {
     // TODO: Pending client input for exact regional pricing numbers.
     pricing: {
       title: "Choose Your Plan",
-      discountText: "Get up to 20% discount - Enrol Today!",
+      discountText: "Save 10%. Enrol today!",
       subtitle: "No contracts. No hidden fees. Cancel anytime.",
       footnote: "Prices shown in NZD. See pricing for Australia, USA and Canada",
       plans: [

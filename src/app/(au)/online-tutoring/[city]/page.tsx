@@ -18,7 +18,7 @@ function getFaqData(city: CityData) {
   return [
     {
       question: `How much does tutoring cost in ${city.name}?`,
-      answer: `TutorExel offers online tutoring for ${city.name} students from $39/month for group sessions (max 3 students) or $84/month for 1-on-1. Both plans include 4 sessions per month per subject.`,
+      answer: `TutorExel offers online tutoring for ${city.name} students from $39/month for group sessions (max 3 students) or $92/month for 1-on-1. Both plans include 4 sessions per month per subject.`,
     },
     {
       question: `Is online tutoring effective for ${city.name} students?`,

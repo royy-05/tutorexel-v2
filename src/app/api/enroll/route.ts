@@ -134,8 +134,8 @@ async function createRazorpayPaymentLink(params: {
       email: params.customerEmail,
       region: params.region,
       currency: params.currency,
-      displayAmount: `${params.currency} ${params.amount}`,
-      displayAmountAUD: String(params.amount),
+      displayAmount: `${params.currency} ${params.amount % 1 !== 0 ? params.amount.toFixed(2) : params.amount}`,
+      displayAmountAUD: String(params.amount % 1 !== 0 ? params.amount.toFixed(2) : params.amount),
     },
     callback_url: callbackUrl,
     callback_method: "get",
@@ -365,9 +365,9 @@ export async function POST(request: NextRequest) {
       ...(subjectList ? { subjects: subjectList } : {}),
       ...(activityList ? { activities: activityList } : {}),
       ...(validatedCouponCode ? { couponCode: validatedCouponCode } : couponCode ? { couponCode: String(couponCode).trim() } : {}),
-      ...(serverTotal != null ? { originalPrice: `${currency} $${serverTotal}` } : {}),
+      ...(serverTotal != null ? { originalPrice: `${currency} $${serverTotal % 1 !== 0 ? serverTotal.toFixed(2) : serverTotal}` } : {}),
       ...(discountAmount > 0 ? { discount: `-${currency} $${discountAmount.toFixed(2)}` } : {}),
-      ...(chargeAmount != null ? { finalPrice: `${currency} $${chargeAmount}` } : {}),
+      ...(chargeAmount != null ? { finalPrice: `${currency} $${chargeAmount % 1 !== 0 ? chargeAmount.toFixed(2) : chargeAmount}` } : {}),
     };
 
     // Create Razorpay Payment Link (with customer notification disabled)

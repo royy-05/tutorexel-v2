@@ -1,4 +1,4 @@
-import { PRICING_DATA } from "@/data/pricing";
+import { US_PRICING_DATA } from "@/data/pricing";
 
 export const US_HOME_COPY = {
   meta: {
@@ -176,7 +176,7 @@ export const US_HOME_COPY = {
   pricing: {
     eyebrow: "Simple Pricing",
     title: "Pick the Right Plan",
-    line1: "Save up to 20%. Enroll today!",
+    line1: "Save 10%. Enroll today!",
     line2: "Pay monthly in USD. No lock-in. Cancel anytime.",
     countryTabs: [
       { label: "USA", href: "/us/pricing", code: "us", flag: "https://flagcdn.com/80x60/us.png", active: true },
@@ -187,10 +187,10 @@ export const US_HOME_COPY = {
     plans: [
       {
         id: "live-online-coaching",
-        name: PRICING_DATA.tutoring.name,
-        subtitle: PRICING_DATA.tutoring.subtitleUS,
+        name: US_PRICING_DATA.tutoring.name,
+        subtitle: US_PRICING_DATA.tutoring.subtitleUS,
         currency: "$",
-        amount: PRICING_DATA.tutoring.amount,
+        amount: US_PRICING_DATA.tutoring.amount,
         period: "USD per month per subject",
         popular: true,
         borderColor: "orange",
@@ -211,10 +211,10 @@ export const US_HOME_COPY = {
       },
       {
         id: "co-curricular",
-        name: PRICING_DATA.music.name,
-        subtitle: PRICING_DATA.music.subtitle,
+        name: US_PRICING_DATA.music.name,
+        subtitle: US_PRICING_DATA.music.subtitle,
         currency: "$",
-        amount: PRICING_DATA.music.amount,
+        amount: US_PRICING_DATA.music.amount,
         period: "USD per month (4 classes)",
         popular: false,
         borderColor: "dark",
@@ -233,12 +233,12 @@ export const US_HOME_COPY = {
       },
       {
         id: "premium-plan",
-        name: PRICING_DATA.premium.name,
-        subtitle: PRICING_DATA.premium.subtitle,
+        name: US_PRICING_DATA.premium.name,
+        subtitle: US_PRICING_DATA.premium.subtitle,
         currency: "$",
-        amount: PRICING_DATA.premium.amount,
-        originalAmount: PRICING_DATA.premium.originalAmount,
-        discountBadge: PRICING_DATA.premium.discountBadge,
+        amount: US_PRICING_DATA.premium.amount,
+        originalAmount: US_PRICING_DATA.premium.originalAmount,
+        discountBadge: US_PRICING_DATA.premium.discountBadge,
         period: "USD per month",
         popular: false,
         borderColor: "dark",

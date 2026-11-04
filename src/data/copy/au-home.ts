@@ -164,7 +164,7 @@ export const AU_HOME_COPY = {
   pricing: {
     eyebrow: "Simple Pricing",
     title: "Pick the Right Plan",
-    line1: "Save up to 20%. Enrol today!",
+    line1: "Save 10%. Enrol today!",
     line2: "Pay monthly in AUD. No lock-in. Cancel anytime.",
     regionTabs: [
       { code: "us", name: "USA", href: "/us", active: false },

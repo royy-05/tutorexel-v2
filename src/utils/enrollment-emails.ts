@@ -63,7 +63,8 @@ export function buildWelcomeEmailHtml(params: EnrollmentEmailParams): string {
   const period = params.offering.toLowerCase().includes("co-curricular") && params.activities && !params.activities.includes(",")
     ? "/session"
     : "/month";
-  const feeDisplay = `${params.currency} $${params.amount}${period}`;
+  const formattedAmount = params.amount % 1 !== 0 ? params.amount.toFixed(2) : String(params.amount);
+  const feeDisplay = `${params.currency} $${formattedAmount}${period}`;
 
   const contactRows: string[] = [];
   if (regConfig.phoneText) {
@@ -158,7 +159,8 @@ export function buildWelcomeEmailText(params: EnrollmentEmailParams): string {
   const period = params.offering.toLowerCase().includes("co-curricular") && params.activities && !params.activities.includes(",")
     ? "/session"
     : "/month";
-  const feeDisplay = `${params.currency} $${params.amount}${period}`;
+  const formattedAmount = params.amount % 1 !== 0 ? params.amount.toFixed(2) : String(params.amount);
+  const feeDisplay = `${params.currency} $${formattedAmount}${period}`;
 
   const lines = [
     `TutorExel - ${enrolmentWord} Confirmation`,
@@ -208,7 +210,7 @@ export function buildTeamNotificationHtml(params: EnrollmentEmailParams): string
     params.activities ? `<tr><td style="padding:8px 12px;background:#f9fafb;border:1px solid #e5e7eb;font-weight:600;">Activities</td><td style="padding:8px 12px;border:1px solid #e5e7eb;">${escapeHtml(params.activities)}</td></tr>` : "",
     params.planDetails ? `<tr><td style="padding:8px 12px;background:#f9fafb;border:1px solid #e5e7eb;font-weight:600;">Plan Details</td><td style="padding:8px 12px;border:1px solid #e5e7eb;white-space:pre-line;">${escapeHtml(params.planDetails)}</td></tr>` : "",
     params.couponCode ? `<tr><td style="padding:8px 12px;background:#f9fafb;border:1px solid #e5e7eb;font-weight:600;">Coupon Code</td><td style="padding:8px 12px;border:1px solid #e5e7eb;">${escapeHtml(params.couponCode)} (${params.discountAmount ? `-$${params.discountAmount}` : ""})</td></tr>` : "",
-    `<tr><td style="padding:8px 12px;background:#f9fafb;border:1px solid #e5e7eb;font-weight:600;">Charge Amount</td><td style="padding:8px 12px;border:1px solid #e5e7eb;"><strong>${escapeHtml(params.currency)} $${params.amount}</strong></td></tr>`,
+    `<tr><td style="padding:8px 12px;background:#f9fafb;border:1px solid #e5e7eb;font-weight:600;">Charge Amount</td><td style="padding:8px 12px;border:1px solid #e5e7eb;"><strong>${escapeHtml(params.currency)} $${params.amount % 1 !== 0 ? params.amount.toFixed(2) : params.amount}</strong></td></tr>`,
     params.referenceId ? `<tr><td style="padding:8px 12px;background:#f9fafb;border:1px solid #e5e7eb;font-weight:600;">Reference ID</td><td style="padding:8px 12px;border:1px solid #e5e7eb;">${escapeHtml(params.referenceId)}</td></tr>` : "",
     params.paymentUrl ? `<tr><td style="padding:8px 12px;background:#fff7ed;border:1px solid #fed7aa;font-weight:600;color:#c2410c;">Payment Link (for team)</td><td style="padding:8px 12px;border:1px solid #fed7aa;"><a href="${escapeHtml(params.paymentUrl)}" style="color:#ea580c;word-break:break-all;font-weight:600;">${escapeHtml(params.paymentUrl)}</a><br><span style="font-size:12px;color:#7c2d12;">(Share with customer only after confirming enrolment)</span></td></tr>` : "",
   ].filter(Boolean).join("");
