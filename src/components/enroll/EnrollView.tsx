@@ -145,7 +145,6 @@ function EnrollForm({ region }: { region?: RegionCode }) {
       English: false,
       Science: false,
     } as Record<string, boolean>,
-    website: "",
     activities: {
       piano: false,
       guitar: false,
