@@ -52,6 +52,7 @@ const PAGE_IMAGES_MAP: Record<string, string[]> = {
   "/blog": [`${SITEMAP_BASE_URL}/images/og-hero.jpg`],
   "/subjects": [`${SITEMAP_BASE_URL}/images/og-hero.jpg`],
   "/exam-prep": [`${SITEMAP_BASE_URL}/images/og-hero.jpg`],
+  "/mock-test/naplan": [`${SITEMAP_BASE_URL}/images/og-hero.jpg`],
   "/online-tutoring": [`${SITEMAP_BASE_URL}/images/og-hero.jpg`],
 };
 

@@ -95,6 +95,7 @@ const nzOnlineTutoringFooterItems = [
 
 const auExamPrepFooterItems = [
   { label: "NAPLAN", href: "/exam-prep/naplan" },
+  { label: "Free Mock Tests", href: "/mock-test/naplan" },
   { label: "ICAS", href: "/exam-prep/icas" },
   { label: "OC Test", href: "/exam-prep/oc-test" },
   { label: "Selective", href: "/exam-prep/selective" },

@@ -1645,6 +1645,10 @@ export const AU_MARKET_UNIQUE_META: Record<string, PageMetaItem> = {
     "title": "NAPLAN Preparation Online | TutorExel Australia",
     "description": "Targeted NAPLAN tutoring for Years 3, 5, and 7. Master numeracy, reading, writing, and language conventions with structured tests and expert feedback."
   },
+  "/mock-test/naplan": {
+    "title": "Free NAPLAN Mock Tests for Years 3, 5, 7 and 9 | TutorExel",
+    "description": "Practise free NAPLAN mock tests for Years 3, 5, 7 and 9. Review sample questions in Numeracy, Reading, Conventions and Writing with answers and explanations."
+  },
   "/online-tutoring": {
     "title": "Online Tutoring Services | TutorExel Australia",
     "description": "Personalized online tutoring across all Australian states. Tailored primary and middle school support in Maths and English from qualified Australian educators."

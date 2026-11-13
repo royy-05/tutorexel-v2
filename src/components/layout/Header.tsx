@@ -23,6 +23,7 @@ const navLinks: NavLinkItem[] = [
   { label: "About Us", href: "/about" },
   { label: "Subjects", href: "/subjects", hasMegaMenu: true },
   { label: "Exam Prep", href: "/exam-prep", regions: ["au", "ca", "nz", "us"], hasDropdown: true },
+  { label: "Mock Test", href: "/mock-test/naplan", regions: ["au"], hasDropdown: true },
   { label: "Co-Curricular", href: "/co-curricular", hasDropdown: true },
   { label: "Online Tutoring", href: "/online-tutoring", regions: ["au", "ca", "nz", "us"], hasDropdown: true },
   { label: "Pricing", href: "/pricing" },
@@ -107,6 +108,10 @@ const coCurricularItems = [
   { label: "Guitar", href: "/co-curricular/guitar" },
 ];
 
+const mockTestItems = [
+  { label: "NAPLAN", href: "/mock-test/naplan" },
+];
+
 
 
 export default function Header() {
@@ -138,6 +143,12 @@ export default function Header() {
     if (href === "/exam-prep" && pathname.startsWith("/exam-prep/naplan")) {
       return true;
     }
+    if (
+      (href === "/mock-test/naplan" || href === "/mock-test") &&
+      pathname.startsWith("/mock-test")
+    ) {
+      return true;
+    }
     return pathname.startsWith(regionalTarget);
   };
 
@@ -161,14 +172,14 @@ export default function Header() {
 
   return (
     <header className={`navbar${scrolled ? " navbar--scrolled" : ""}`}>
-      <div className="container navbar__inner">
+      <div className="navbar__inner">
         <Link href={toHref("/")} className="navbar__logo">
           <Image
             src="/images/banner/Header_Logo.webp"
             alt="TutorExel"
             width={150}
             height={40}
-            style={{ height: 40, width: "auto" }}
+            style={{ height: 38, width: "auto" }}
             priority
           />
         </Link>
@@ -249,6 +260,8 @@ export default function Header() {
                   <div className="navbar__dropdown">
                     {(link.href === "/exam-prep"
                       ? (currentRegion === "us" ? usExamPrepItems : currentRegion === "ca" ? caExamPrepItems : currentRegion === "nz" ? nzExamPrepItems : auExamPrepItems)
+                      : link.href === "/mock-test/naplan"
+                      ? mockTestItems
                       : link.href === "/online-tutoring"
                       ? (currentRegion === "us" ? usOnlineTutoringItems : currentRegion === "ca" ? caOnlineTutoringItems : currentRegion === "nz" ? nzOnlineTutoringItems : auOnlineTutoringItems)
                       : coCurricularItems
