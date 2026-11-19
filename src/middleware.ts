@@ -36,7 +36,8 @@ const oldIdToSlug: Record<string, string> = {
 // ─── Middleware ──────────────────────────────────────────────────────────────
 export function middleware(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
-  const isPreview = process.env.VERCEL_ENV === "preview";
+  const isPreview =
+    process.env.IS_PREVIEW === "true" || process.env.VERCEL_ENV === "preview";
 
   // 301 Redirect old type-based sitemaps to /sitemap.xml
   if (

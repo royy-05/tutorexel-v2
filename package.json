@@ -5,9 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p ${PORT:-3000}",
     "lint": "eslint",
     "check:meta": "node scripts/check-meta.mjs"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "dependencies": {
     "@portabletext/react": "^8.0.1",
@@ -22,7 +25,8 @@
     "nodemailer": "^10.1.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "resend": "^6.12.3"
+    "resend": "^6.12.3",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
